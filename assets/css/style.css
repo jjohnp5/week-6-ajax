@@ -1,0 +1,10 @@
+body{
+    font-family: 'Mina', sans-serif;
+}
+.buttons{
+    min-height: 100px;
+    margin: 10px 0;
+}
+.searches{
+    margin: 0 5px;
+}
