@@ -16,7 +16,7 @@ $(document).ready(()=>{
     $('#submit').on('click', (e)=>{
         e.preventDefault();
         buttons.push($('#search').val());
-        renderButtons();
+        $('.buttons').append($('<button data-name='+$('#search').val()+'>').text($('#search').val()).addClass("btn btn-success btn-sm searches"));
     })
     function renderButtons(){
         $('.buttons').empty();
