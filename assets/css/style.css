@@ -1,10 +1,23 @@
 body{
     font-family: 'Mina', sans-serif;
 }
+h1{
+    text-align: center;
+}
 .buttons{
     min-height: 100px;
     margin: 10px 0;
 }
-.searches{
+.searches, .pages{
     margin: 0 5px;
+}
+img.img-responsive{
+    max-width: 250px;
+    margin: 5px;
+}
+.darkGreen{
+    background-color: darkgreen;
+}
+.darkBlue{
+    background-color: darkblue;
 }
