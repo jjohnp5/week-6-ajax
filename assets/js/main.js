@@ -5,18 +5,27 @@ $(document).ready(()=>{
     const limit = "25";
     const offset = "0";
     const lang = "en";
+    let buttons = ["dog","cat","mouse","horse","droid", "java", "javascript", "html", "css", "php", "sql", "python"];
     var results = {"y": [], "g": [], "pg": [], "pg-13": [], "r": []}
     const ratings = {"y": "Young", "g": "General", "pg": "PG", "pg-13": "PG - 13", "r": "R" }
     $(document).on('click', '.searches', clickHandler);
     $(document).on('click', '.pages', displayImagesHandler);
     $(document).on('click', '.gifs', animateToggle);
+    renderButtons();
 
     $('#submit').on('click', (e)=>{
         e.preventDefault();
-        $('.buttons').append($('<button data-name='+$("#search").val()+'>').text($("#search").val()).addClass("btn btn-success btn-sm searches"));
-        $('#search').val("");
+        buttons.push($('#search').val());
+        renderButtons();
     })
-
+    function renderButtons(){
+        $('.buttons').empty();
+        buttons.forEach(button => {
+            $('.buttons').append($('<button data-name='+button+'>').text(button).addClass("btn btn-success btn-sm searches"));
+        $('#search').val("");
+        })
+        
+    }
 
 
     function clickHandler(e){
