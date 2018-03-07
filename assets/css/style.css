@@ -1,10 +1,24 @@
 body{
     font-family: 'Mina', sans-serif;
+    padding: 25px 0;
+}
+h1{
+    text-align: center;
 }
 .buttons{
     min-height: 100px;
     margin: 10px 0;
 }
-.searches{
-    margin: 0 5px;
+.searches, .pages{
+    margin: 5px 5px;
+}
+img.img-responsive{
+    max-height: 150px;
+    margin: 5px;
+}
+.darkGreen{
+    background-color: darkgreen;
+}
+.dark-blue{
+    background-color: darkblue;
 }
