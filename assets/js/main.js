@@ -1,6 +1,6 @@
 
 $(document).ready(()=>{
-    const API_KEY = "XdGBrwP4R5Z83xSbFkfOdK9AautR3j4P";
+    const API_KEY = prompt("Enter your Giphy API key.");
     const baseURL  = "https://api.giphy.com/v1/gifs/search?";
     const limit = "25";
     const offset = "0";
