@@ -5,7 +5,16 @@ $(document).ready(()=>{
     const limit = "25";
     const offset = "0";
     const lang = "en";
-    let buttons = ["dog","cat","mouse","horse","droid", "java", "javascript", "html", "css", "php", "sql", "python"];
+    let baseData = [];
+    let buttons;
+    if(!localStorage.getItem("buttons")){
+        baseData = ["dog","cat","mouse","horse","droid", "java", "javascript", "html", "css", "php", "sql", "python"];
+        localStorage.setItem("buttons", JSON.stringify(baseData));
+        updateStorage();
+    }else{
+        baseData = JSON.parse(localStorage.getItem('buttons'));
+        updateStorage();
+    }
     var results = {"y": [], "g": [], "pg": [], "pg-13": [], "r": []}
     const ratings = {"y": "Young", "g": "General", "pg": "PG", "pg-13": "PG - 13", "r": "R" }
     $(document).on('click', '.searches', clickHandler);
@@ -15,8 +24,14 @@ $(document).ready(()=>{
 
     $('#submit').on('click', (e)=>{
         e.preventDefault();
-        buttons.push($('#search').val());
+        if($('#search').val() != ""){
+        baseData.push($('#search').val());
+        
+        updateStorage();
         $('.buttons').append($('<button data-name='+$('#search').val()+'>').text($('#search').val()).addClass("btn btn-success btn-sm searches"));
+        $('#search').val("");
+    }
+
     })
     function renderButtons(){
         $('.buttons').empty();
@@ -78,6 +93,14 @@ $(document).ready(()=>{
             $(this).attr("src", $(this).data("animate"));
         }
     }
+    function updateStorage(){
+        localStorage.setItem("buttons", JSON.stringify(baseData));
+        if(localStorage.getItem("buttons")){
+            buttons = JSON.parse(localStorage.getItem("buttons"));
+        }
+
+    }
+
 
 
 })
